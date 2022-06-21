@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "199906004019",
+    "project_id": "autenticacao-c4191",
+    "storage_bucket": "autenticacao-c4191.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:199906004019:android:f36ea4c10faa54683c6746",
+        "android_client_info": {
+          "package_name": "com.login_google_agora_vai"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "199906004019-g6f39765jn0gsojh8idvtckupbv0t26c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.login_google_agora_vai",
+            "certificate_hash": "903db6e345b5438dcf78d05ce157366b4749c7ec"
+          }
+        },
+        {
+          "client_id": "199906004019-mufl01heq4tdg71mdfs7kvar99b3spks.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCN6rFBv7UNWbEdh2t72ns7jFWJIVXZOKc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "199906004019-mufl01heq4tdg71mdfs7kvar99b3spks.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
