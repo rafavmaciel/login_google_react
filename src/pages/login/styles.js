@@ -46,6 +46,17 @@ export default styles = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: 7
   },
+  
+  buttonGoogle: {
+    backgroundColor: '#f45',
+    width: '60%',
+    height: 45,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 7,
+    marginTop: 20,
+    
+  },
 
   submitText: {
     color: '#FFF',

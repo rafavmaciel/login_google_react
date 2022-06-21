@@ -1,16 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import {
-  KeyboardAvoidingView,
-  View,
-  Text,
-  Image,
-  TextInput,
-  TouchableOpacity,
-  Animated,
-  Keyboard,
-} from 'react-native';
+import {KeyboardAvoidingView,View,Text,Image,TextInput,TouchableOpacity,Animated,Keyboard,} from 'react-native';
 //import firebase from "../../config/firebase";
 import styles from './styles';
+import auth from '@react-native-firebase/auth';
 import {
   GoogleSignin,
   statusCodes,
@@ -28,6 +20,7 @@ export default function App({navigation}) {
       const useInfo = await GoogleSignin.signIn();
       console.log(useInfo);
     } catch (error) {
+        console.log(error)
       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
         // user cancelled the login flow
       } else if (error.code === statusCodes.IN_PROGRESS) {
@@ -173,6 +166,9 @@ export default function App({navigation}) {
 
           <TouchableOpacity style={styles.buttonSubmit} onPress={() => logar()}>
             <Text style={styles.submitText}>Acessar</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.buttonGoogle} onPress={() => GoogleSigninIn() }>
+            <Text style={styles.submitText}>Entrar com Google</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
