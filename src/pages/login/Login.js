@@ -46,6 +46,20 @@ export default function App({navigation}) {
     return auth().signInWithCredential(googleCredential);
   };
 
+  const [loggedIn, setloggedIn] = useState(false);
+  const [user, setUser] = useState([]);
+
+  useEffect(() => {
+    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+    return subscriber; // unsubscribe on unmount
+  }, []);
+
+  function onAuthStateChanged(user) {
+    setUser(user);
+    console.log(user);
+    if (user) setloggedIn(true);
+  }
+
   const [offset] = useState(new Animated.ValueXY({x: 0, y: 150}));
   const [opacity] = useState(new Animated.Value(0));
   const [logo] = useState(new Animated.ValueXY({x: 170, y: 235}));
@@ -66,6 +80,7 @@ export default function App({navigation}) {
   // }
 
   useEffect(() => {
+    
     keyboardDidShowListener = Keyboard.addListener(
       'keyboardDidShow',
       keyboardDidShow,
