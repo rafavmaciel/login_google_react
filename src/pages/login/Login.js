@@ -1,5 +1,14 @@
 import React, {useState, useEffect} from 'react';
-import {KeyboardAvoidingView,View,Text,Image,TextInput,TouchableOpacity,Animated,Keyboard,} from 'react-native';
+import {
+  KeyboardAvoidingView,
+  View,
+  Text,
+  Image,
+  TextInput,
+  TouchableOpacity,
+  Animated,
+  Keyboard,
+} from 'react-native';
 //import firebase from "../../config/firebase";
 import styles from './styles';
 import auth from '@react-native-firebase/auth';
@@ -14,23 +23,27 @@ GoogleSignin.configure({
 });
 
 export default function App({navigation}) {
-  
-    const GoogleSigninIn = async () => {
-    try {
-      const useInfo = await GoogleSignin.signIn();
-      console.log(useInfo);
-    } catch (error) {
-        console.log(error)
-      if (error.code === statusCodes.SIGN_IN_CANCELLED) {
-        // user cancelled the login flow
-      } else if (error.code === statusCodes.IN_PROGRESS) {
-        // operation (e.g. sign in) is in progress already
-      } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
-        // play services not available or outdated
-      } else {
-        // some other error happened
-      }
-    }
+  const GoogleSigninIn = async () => {
+    // try {
+    //   const useInfo = await GoogleSignin.signIn();
+    //   console.log(useInfo);
+    // } catch (error) {
+    //     console.log(error)
+    //   if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+    //     // user cancelled the login flow
+    //   } else if (error.code === statusCodes.IN_PROGRESS) {
+    //     // operation (e.g. sign in) is in progress already
+    //   } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+    //     // play services not available or outdated
+    //   } else {
+    //     // some other error happened
+    //   }
+    // }
+    const {idToken} = await GoogleSignin.signIn();
+    // Create a Google credential with the token
+    const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+    // Sign - in the user with the credential
+    return auth().signInWithCredential(googleCredential);
   };
 
   const [offset] = useState(new Animated.ValueXY({x: 0, y: 150}));
@@ -167,7 +180,9 @@ export default function App({navigation}) {
           <TouchableOpacity style={styles.buttonSubmit} onPress={() => logar()}>
             <Text style={styles.submitText}>Acessar</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.buttonGoogle} onPress={() => GoogleSigninIn() }>
+          <TouchableOpacity
+            style={styles.buttonGoogle}
+            onPress={() => GoogleSigninIn()}>
             <Text style={styles.submitText}>Entrar com Google</Text>
           </TouchableOpacity>
 

@@ -14,11 +14,27 @@
       },
       "oauth_client": [
         {
+          "client_id": "199906004019-6fluj3jikbkh03sc2ps4a8io5g3ooj2d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.login_google_agora_vai",
+            "certificate_hash": "3c2d87bff52cc467d92f257f502ed00161a1804e"
+          }
+        },
+        {
           "client_id": "199906004019-g6f39765jn0gsojh8idvtckupbv0t26c.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.login_google_agora_vai",
             "certificate_hash": "903db6e345b5438dcf78d05ce157366b4749c7ec"
+          }
+        },
+        {
+          "client_id": "199906004019-uiiiq89msfmjes4mjrn7jkajndd0dhjc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.login_google_agora_vai",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
           }
         },
         {
