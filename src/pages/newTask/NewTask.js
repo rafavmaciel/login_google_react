@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
-import firebase from "../../config/firebase";
+import firestore from '@react-native-firebase/firestore';
 import styles from "./style";
-import { FontAwesome5 } from "@expo/vector-icons";
-import Calendar from "../../components/Calendar";
+//import { FontAwesome5 } from "@expo/vector-icons";
+//import Calendar from "../../components/Calendar";
 
 export default function NewTask({ route, navigation }) {
     const userId = route.params.userId;
     const [description, setDescription] = useState("");
-    const database = firebase.firestore();
+    const database = firestore();
     const [date, setDate] = useState("");
 
     function getDate(dateTime) {
@@ -60,9 +60,9 @@ export default function NewTask({ route, navigation }) {
                     addTask();
                 }}
             >
-                <FontAwesome5 name="plus" size={20} color="#fff" />
+                {/* <FontAwesome5 name="plus" size={20} color="#fff" /> */}
             </TouchableOpacity>
-            <Calendar style={styles.calendar} getDate={getDate} />
+            {/* <Calendar style={styles.calendar} getDate={getDate} /> */}
         </View>
     );
 }

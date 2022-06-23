@@ -8,13 +8,12 @@ import {
     FlatList,
     TextInput,
 } from "react-native";
-import { FontAwesome5 } from "@expo/vector-icons";
-import firebase from "../../config/firebase";
+import firestore from '@react-native-firebase/firestore';
 import styles from "./style";
 
 export default function Task({ route, navigation }) {
-    const userId = route.params.userId;
-    const database = firebase.firestore();
+    const userId = route.params.user.uid;
+    const database =firestore();
     const [task, setTask] = useState([]);
 
     function deleteTask(id) {
@@ -36,11 +35,11 @@ export default function Task({ route, navigation }) {
                         deleteTask(item.id);
                     }}
                 >
-                    <FontAwesome5 name="trash-alt" size={20} color="#f5fffb" />
+                    {/* <FontAwesome5 name="trash-alt" size={20} color="#f5fffb" /> */}
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.deleteTask} onPress={() => markAsdone(item.id, item.status) }>
-                    <FontAwesome5 name="check" size={20} color="#f5fffb" />
+                    {/* <FontAwesome5 name="check" size={20} color="#f5fffb" /> */}
                 </TouchableOpacity>
 
                 <Text
@@ -90,4 +89,10 @@ export default function Task({ route, navigation }) {
             </TouchableOpacity>
         </View>
     );
+
+    // return(
+    //     <View>
+    //         <Text> tela de tarefas </Text>
+    //     </View>
+    // )
 }

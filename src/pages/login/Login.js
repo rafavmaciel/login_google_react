@@ -23,32 +23,18 @@ GoogleSignin.configure({
 });
 
 export default function App({navigation}) {
+  const [loggedIn, setloggedIn] = useState(false);
+  const [user, setUser] = useState([]);
+ 
   const GoogleSigninIn = async () => {
-    // try {
-    //   const useInfo = await GoogleSignin.signIn();
-    //   console.log(useInfo);
-    // } catch (error) {
-    //     console.log(error)
-    //   if (error.code === statusCodes.SIGN_IN_CANCELLED) {
-    //     // user cancelled the login flow
-    //   } else if (error.code === statusCodes.IN_PROGRESS) {
-    //     // operation (e.g. sign in) is in progress already
-    //   } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
-    //     // play services not available or outdated
-    //   } else {
-    //     // some other error happened
-    //   }
-    // }
     const {idToken} = await GoogleSignin.signIn();
     // Create a Google credential with the token
     const googleCredential = auth.GoogleAuthProvider.credential(idToken);
-    // Sign - in the user with the credential
+    // Sign in the user with the credential
     return auth().signInWithCredential(googleCredential);
   };
 
-  const [loggedIn, setloggedIn] = useState(false);
-  const [user, setUser] = useState([]);
-
+  
   useEffect(() => {
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
     return subscriber; // unsubscribe on unmount
@@ -56,8 +42,11 @@ export default function App({navigation}) {
 
   function onAuthStateChanged(user) {
     setUser(user);
-    console.log(user);
-    if (user) setloggedIn(true);
+    if (user){
+      setloggedIn(true);
+      console.log("bateu aqui")
+      navigation.navigate("Task", {user: user});
+    }
   }
 
   const [offset] = useState(new Animated.ValueXY({x: 0, y: 150}));
@@ -80,7 +69,6 @@ export default function App({navigation}) {
   // }
 
   useEffect(() => {
-    
     keyboardDidShowListener = Keyboard.addListener(
       'keyboardDidShow',
       keyboardDidShow,
