@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, TouchableOpacity,Text } from "react-native";
 import DatePicker from "react-native-neat-date-picker";
 import styles from "./styles";
-import { FontAwesome5 } from "@expo/vector-icons";
+import Icon from 'react-native-vector-icons/MaterialIcons'
 
 export default function Calendar(props) {
     const [showDatePicker, setShowDatePicker] = useState(false);
@@ -31,8 +31,8 @@ export default function Calendar(props) {
             <View style={styles.areaCalendar}>
                 <Text style={styles.textCalendar}>Selecione a data :</Text>
             </View>
-            <FontAwesome5
-                name="calendar"
+            <Icon
+                name="calendar-today"
                 size={60}
                 color="#222222"
                 style={styles.calendarIcon}

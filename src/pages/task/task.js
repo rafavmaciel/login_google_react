@@ -10,9 +10,11 @@ import {
 } from "react-native";
 import firestore from '@react-native-firebase/firestore';
 import styles from "./style";
+import Icon from 'react-native-vector-icons/MaterialIcons'
+import AntIcon from 'react-native-vector-icons/AntDesign'
 
 export default function Task({ route, navigation }) {
-    const userId = route.params.user.uid;
+    const userId = route.params.user.uid ? route.params.user.uid : route.params.user
     const database =firestore();
     const [task, setTask] = useState([]);
 
@@ -35,11 +37,11 @@ export default function Task({ route, navigation }) {
                         deleteTask(item.id);
                     }}
                 >
-                    {/* <FontAwesome5 name="trash-alt" size={20} color="#f5fffb" /> */}
+                    <Icon name='delete' size={25} color="#f5fffb" />
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.deleteTask} onPress={() => markAsdone(item.id, item.status) }>
-                    {/* <FontAwesome5 name="check" size={20} color="#f5fffb" /> */}
+                <Icon name='done-outline' size={25} color="#f5fffb" />
                 </TouchableOpacity>
 
                 <Text
@@ -85,7 +87,7 @@ export default function Task({ route, navigation }) {
                 style={styles.bottonNewTask}
                 onPress={() => navigation.navigate("NewTask", {userId: userId})}
             >
-                <Text styles={styles.iconButton}>+</Text>
+                 <AntIcon name="plus" size={20} color="#fff" />
             </TouchableOpacity>
         </View>
     );

@@ -6,7 +6,10 @@ import Task from './src/pages/task/task';
 
 import About from './src/pages/about/index';
 import Login from './src/pages/login/Login';
-import NewTask from "./src/pages/newTask/NewTask";
+import NewTask from './src/pages/newTask/NewTask';
+import Details from './src/pages/details/details';
+import Icon from 'react-native-vector-icons/MaterialIcons'
+import ProfileButton from './src/components/ProfileButton';
 
 const Stack = createNativeStackNavigator();
 
@@ -46,6 +49,10 @@ export default function App() {
             headerTitleStyle: {
               fontWeight: 'bold',
             },
+            headerBackVisible:false,
+            headerRight: () => ( 
+                <ProfileButton/>
+            )
           }}
         />
         <Stack.Screen
@@ -53,6 +60,20 @@ export default function App() {
           component={NewTask}
           options={{
             title: 'Nova Tarefa',
+            headerStyle: {
+              backgroundColor: '#f4511e',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
+        />
+        <Stack.Screen
+          name="Details"
+          component={Details}
+          options={{
+            title: 'Detalhes',
             headerStyle: {
               backgroundColor: '#f4511e',
             },

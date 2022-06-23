@@ -39,36 +39,42 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         marginTop: 10,
         marginRight: 10,
+        padding:0
     },
     deleteTask: {
         justifyContent: 'center',
         padding: 7,
         margin : 15,
         backgroundColor : '#f4511e',
-        borderRadius : 100,
+        borderRadius : 50,
     },
     descriptionText: {
-        width: '75%',
+        width: '70%',
         alignContent: 'center',
+        justifyContent:'center',
         backgroundColor: '#F92e6a',
-        padding: 18,
+        paddingHorizontal: 18,
+        paddingTop:10,
         borderRadius: 50,
-        marginBottom: 10,
+        margin: 10,
         marginRight : 15,
         color: '#f5fffb',
+        fontSize:18
     }, 
 
     descriptionTextAsDone: {
-        width: '75%',
-        alignContent: 'flex-start',
+        width: '70%',
+        alignContent: 'center',
+        justifyContent:'center',
         backgroundColor: '#f5f5f5cf',
-        padding: 18,
-        paddingHorizontal: 20,
+        paddingHorizontal: 18,
+        paddingTop:10,
         borderRadius: 50,
-        marginBottom: 10,
+        margin: 10,
         marginRight : 15,
         color: '#696969',
         textDecorationLine: 'line-through',
+        fontSize:18
     }, 
 });
 

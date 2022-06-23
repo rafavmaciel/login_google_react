@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import firestore from '@react-native-firebase/firestore';
 import styles from "./style";
-//import { FontAwesome5 } from "@expo/vector-icons";
-//import Calendar from "../../components/Calendar";
+import Icon from 'react-native-vector-icons/AntDesign'
+import Calendar from "../../components/Calendar";
 
 export default function NewTask({ route, navigation }) {
     const userId = route.params.userId;
@@ -39,7 +39,7 @@ export default function NewTask({ route, navigation }) {
                 updatedAt: formatDate(),
             })
             .then(() => {
-                navigation.navigate("Task", { userId: userId });
+                navigation.navigate("Task", { user: userId });
             });
     }
 
@@ -60,9 +60,9 @@ export default function NewTask({ route, navigation }) {
                     addTask();
                 }}
             >
-                {/* <FontAwesome5 name="plus" size={20} color="#fff" /> */}
+                <Icon name="plus" size={20} color="#fff" />
             </TouchableOpacity>
-            {/* <Calendar style={styles.calendar} getDate={getDate} /> */}
+            <Calendar style={styles.calendar} getDate={getDate} />
         </View>
     );
 }

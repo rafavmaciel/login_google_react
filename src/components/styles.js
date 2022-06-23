@@ -36,6 +36,13 @@ export default styles = StyleSheet.create({
         marginTop: 50,
         color: "#222222",
         marginLeft: 10,
+    },
+    profile: {
+        backgroundColor: "#F92e6a",
+        width:40,
+        height:40,
+        borderRadius:50
+
     }
 
 });
