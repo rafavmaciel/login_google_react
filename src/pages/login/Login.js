@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect,useContext} from 'react';
 import {
   KeyboardAvoidingView,
   View,
@@ -12,6 +12,7 @@ import {
 //import firebase from "../../config/firebase";
 import styles from './styles';
 import auth from '@react-native-firebase/auth';
+import UserContext, { UserProvider } from '../../context/UserContext';
 import {
   GoogleSignin,
   statusCodes,
@@ -25,7 +26,8 @@ GoogleSignin.configure({
 export default function App({navigation}) {
   const [loggedIn, setloggedIn] = useState(false);
   const [user, setUser] = useState([]);
- 
+  const {login} = useContext(UserContext)
+
   const GoogleSigninIn = async () => {
     const {idToken} = await GoogleSignin.signIn();
     // Create a Google credential with the token
@@ -42,6 +44,7 @@ export default function App({navigation}) {
 
   function onAuthStateChanged(user) {
     setUser(user);
+    login(user.uid, user.displayName, user.photoURL  )
     if (user){
       setloggedIn(true);
       console.log("bateu aqui")

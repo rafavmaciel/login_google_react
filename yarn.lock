@@ -1364,6 +1364,11 @@
   resolved "https://registry.yarnpkg.com/@react-native-google-signin/google-signin/-/google-signin-7.2.2.tgz#29e416d5c8484b52de3dc97f982f04b0083f27fe"
   integrity sha512-FqSJAEYz+SNeIOyokFX3e7nbBgK0js/Hye0YNY+cV0Qf1NxKw1vRt2MQB3kfuVWFCb+OSovgQCl6W8dhYvsblw==
 
+"@react-native-picker/picker@^2.4.2":
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/@react-native-picker/picker/-/picker-2.4.2.tgz#2925eb8e76ff6b584c80529adc251df963be9141"
+  integrity sha512-0nY8638h1J3wKz6P3IJMpOoxJDdOj7Dk/K2hP/xpqP3KnIY0lmoqYlhyNihuyVPocDGajf6SA7LFFsFepQ56ag==
+
 "@react-native/assets@1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@react-native/assets/-/assets-1.0.0.tgz#c6f9bf63d274bafc8e970628de24986b30a55c8e"
@@ -5970,6 +5975,11 @@ react-native-svg@^12.3.0:
   dependencies:
     css-select "^4.2.1"
     css-tree "^1.0.0-alpha.39"
+
+react-native-tooltip-menu@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/react-native-tooltip-menu/-/react-native-tooltip-menu-3.0.3.tgz#5b3e27d0d026dc948cb4eb7953109f6d46f6978b"
+  integrity sha512-cUPueL3W4N2GCauV30xAa99dmTpQldzp1e95IuaTI8wCrPuMMS8wU7CumwHT3NhwbhiCKFAmiFxRRgt8T+P1RA==
 
 react-native-vector-icons@^8.1.0:
   version "8.1.0"

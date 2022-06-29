@@ -10,6 +10,7 @@ export default function NewTask({ route, navigation }) {
     const [description, setDescription] = useState("");
     const database = firestore();
     const [date, setDate] = useState("");
+    const [prority, setPriority] = useState("")
 
     function getDate(dateTime) {
         setDate(dateTime);
@@ -63,6 +64,7 @@ export default function NewTask({ route, navigation }) {
                 <Icon name="plus" size={20} color="#fff" />
             </TouchableOpacity>
             <Calendar style={styles.calendar} getDate={getDate} />
+            
         </View>
     );
 }
