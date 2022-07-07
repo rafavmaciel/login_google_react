@@ -20,7 +20,7 @@ export default function Task({route, navigation}) {
     : route.params.user;
   const database = firestore();
   const [task, setTask] = useState([]);
-  const {isSignedIn, user } = useContext(UserContext);  
+  const {state, dispatch} = useContext(UserContext)  
   
 
   function deleteTask(id) {
@@ -78,10 +78,9 @@ export default function Task({route, navigation}) {
     );
   }
 
-  useEffect(() => {
-
-    //let {user } = useContext(UserContext);  
-    if(user.isSignedIn === false){
+  useEffect(() => {  
+    console.log(state)
+    if(state.auth === false){
       console.log('Não logado');
       navigation.navigate('Login');
     }

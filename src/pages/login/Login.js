@@ -24,9 +24,8 @@ GoogleSignin.configure({
 });
 
 export default function App({navigation}) {
-  const [loggedIn, setloggedIn] = useState(false);
-  const [user, setUser] = useState([]);
-  const {login} = useContext(UserContext)
+  const [userLocal, setUser] = useState([]);
+  const {state, dispatch} = useContext(UserContext)
 
   const GoogleSigninIn = async () => {
     const {idToken} = await GoogleSignin.signIn();
@@ -44,10 +43,14 @@ export default function App({navigation}) {
 
   function onAuthStateChanged(user) {
     setUser(user);
-    login(user.uid, user.displayName, user.photoURL  )
+    console.log(user);
+    dispatch({type: 'SET_USER', payload: {
+      uid: user.uid,
+      name: user.displayName,
+      profilePhoto: user.photoURL,
+      auth: true,
+    }});
     if (user){
-      setloggedIn(true);
-      console.log("bateu aqui")
       navigation.navigate("Task", {user: user});
     }
   }

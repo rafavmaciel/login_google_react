@@ -82,6 +82,20 @@ export default function App() {
               },
             }}
           />
+          <Stack.Screen
+            name="Profile"
+            component={UserProvider}
+            options={{
+              title: 'Perfil',
+              headerStyle: {
+                backgroundColor: '#f4511e',
+              },
+              headerTintColor: '#fff',
+              headerTitleStyle: {
+                fontWeight: 'bold',
+              },
+            }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </UserProvider>

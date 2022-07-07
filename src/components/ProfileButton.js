@@ -6,21 +6,25 @@ import ModalDropdown from 'react-native-modal-dropdown';
 
 
 export default function ProfileButton(props) {
-  const {user, logout } = useContext(UserContext);  
+  const {state, dispatch } = useContext(UserContext);  
+
+  function handleLogout() {
+    dispatch({type: 'LOGOUT'});
+  }
 
   async function getSelecao(id) {
     if (id == 0) {
-      await logout();
+      return handleLogout();
     } else {
       return 'Selecionar';
     }
   }
 
   return (
-    <ModalDropdown options={['opção 1', 'option 2']} 
+    <ModalDropdown options={['logout', 'option 2']} 
     dropdownStyle ={{borderRadius:10 }}
     onSelect={index => getSelecao(index)}>
-      <Image source={{uri: user.profilePhoto}} style={styles.profile} />
+      <Image source={{uri: state.profilePhoto}} style={styles.profile} />
     </ModalDropdown>
   );
 }
